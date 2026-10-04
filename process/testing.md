@@ -1,15 +1,18 @@
 # 测试
 
-合并前在本地跑与改动相交的命令。仓库尚无 GitHub Actions，绿色以 PR 描述里的命令输出为准。
+合并前在本地跑与改动相交的命令。Cocktail 的 PR 还会跑 [CI](https://github.com/CocktailMC/Cocktail/blob/main/.github/workflows/ci.yml)。ESPlus 和 leaf 仍以本地结果为准。
 
 ## Cocktail
 
 | 改动 | 命令 |
 |---|---|
-| Rust 控制面或插件 | `cargo test --workspace` |
-| 风格 | `cargo fmt --check` 与 `cargo clippy --workspace --all-targets -- -D warnings` |
-| 管理端 | `cd admin && npm run build`（有 lint 脚本时先 `npm run lint`） |
+| 控制面 | `cargo test -p cocktail-control` |
+| 风格 | `cargo fmt --all -- --check`，以及 `cargo clippy -p cocktail-control --all-targets` |
+| WASM 插件 | `cargo build --target wasm32-unknown-unknown -p cocktail-plugin-watchdog -p cocktail-plugin-speclint -p cocktail-plugin-gameops -p cocktail-plugin-esplus` |
+| 管理端 | `cd admin && npm ci && npm run lint && npm run build` |
 | 只改 Markdown | 通读链接与命令，不必跑全量编译 |
+
+插件是 `cdylib`，用 `wasm32-unknown-unknown` 编译，不进宿主上的 `cargo test`。clippy 目前不把警告当成失败；`scripts/release/rules.toml` 里的 `clippy_deny_warnings` 打开后才会。
 
 插件改动额外说明：调用的宿主函数、是否实现 `tick`、对已有 KV 键的兼容。
 
@@ -61,4 +64,4 @@ Forge live 在当前 JDK 25 工作区不能作为合并门禁。改了 Forge 桥
 
 ## 和 DT 流水线的对应
 
-[versioning.md](../versioning.md) 第 13 节要求 DT 发布前通过：Cargo test、Clippy、Rustfmt、前端 lint、前端构建、Windows 构建、Linux 构建、打包。这些检查在 Actions 落地前由发版人在两台系统上执行并记在 Release 正文。任一失败则不发 DT。
+推到 Cocktail 的 `main` 时，[DT release](https://github.com/CocktailMC/Cocktail/blob/main/.github/workflows/dt-release.yml) 先跑上面的检查。检查失败就不规划版本。通过之后，只有有效 PR 达到 2 个才打包 Linux 和 Windows 并发布。规则见 [automation.md](automation.md)。

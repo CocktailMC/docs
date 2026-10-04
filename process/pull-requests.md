@@ -50,6 +50,6 @@
 
 ## DT 计数
 
-[versioning.md](../versioning.md) 规定 Cocktail 每合并 2 个有效 PR 生成一个新的 DT 主版本。有效 PR 指改变控制面、管理端、插件或打包行为的合并。纯文档、纯 CI 文案、重复关闭的空 PR 不计数。
+[versioning.md](../versioning.md) 规定 Cocktail 每合并 2 个有效 PR 生成一个新的 DT 主版本。有效 PR 指改变控制面、管理端、插件或打包行为的合并。只改 Markdown、`design/`、`docs/`、`.github/` 或 logo 的 PR 不计数。要排除一次代码合并，给 PR 加上 `dt:skip` 或 `release:skip`。
 
-自动发布流水线尚未落地。在 workflow 写入 Cocktail 仓库之前，DT 不自动发，合并本身就是完成。有人手工发 DT 时，仍按「满两个有效 PR、关键检查全绿」执行，并在 Release 里列出那两个 PR。
+合并进 `main` 之后由发版工作流判断，不在 PR 里手工发 DT。计数的实现见 [automation.md](automation.md)。

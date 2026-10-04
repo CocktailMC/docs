@@ -11,7 +11,8 @@
 | 记缺陷和需求 | [issues.md](issues.md) |
 | 合并前跑什么 | [testing.md](testing.md) |
 | 怎么打版本和制品 | [release.md](release.md) |
+| Cocktail 的自动检查和 DT | [automation.md](automation.md) |
 | 密钥和漏洞 | [security.md](security.md) |
 | 文档写在哪 | [documentation.md](documentation.md) |
 
-截至 2026-10-04，各仓库都还没有提交 GitHub Actions workflow。下面写的 CI 门禁是合并前的本地义务，以及 [versioning.md](../versioning.md) 里 DT 自动发布所要求的流水线。流水线落地后，以 workflow 文件为准，并回写 [测试](testing.md)。
+Cocktail 的检查和 DT 发布在 `CocktailMC/Cocktail` 的 GitHub Actions 里。ESPlus 和 leaf 仍在本地跑 [测试](testing.md) 里的命令。

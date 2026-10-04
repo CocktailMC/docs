@@ -26,6 +26,7 @@ CocktailMC 的组织级文档：各仓库做什么、怎么协作、怎么发版
 | [Issue](process/issues.md) | 缺陷、功能和安全报告 |
 | [测试](process/testing.md) | 合并前必须跑过的检查 |
 | [发行](process/release.md) | 阶段晋级、制品、各仓库版本差异 |
+| [Cocktail 自动化](process/automation.md) | CI、DT 计数和人工发版 |
 | [安全](process/security.md) | 密钥、面板、漏洞处理 |
 | [文档维护](process/documentation.md) | 什么写在这里，什么留在源码仓库 |
 

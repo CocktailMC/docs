@@ -6,7 +6,7 @@ Cocktail 的版本字符串、阶段和制品命名以 [versioning.md](../versio
 
 | 阶段 | 谁批准 | 条件 |
 |---|---|---|
-| DT | 流水线；流水线缺失时由维护者手工发 | 每 2 个有效 PR，且 [测试](testing.md) 里的关键检查全绿 |
+| DT | 推到 Cocktail `main` 后由 [DT release](https://github.com/CocktailMC/Cocktail/blob/main/.github/workflows/dt-release.yml) 自动判断 | 每 2 个有效 PR，且检查全绿。细节在 [automation.md](automation.md) |
 | DP、AT-D、AT、BT-D、BT、RC-D、RC、GA | 维护者书面决定（PR 或 Release 草稿里写「批准进入某阶段」） | 见 versioning 对应小节。CI 不因日期或 PR 数量自动晋级 |
 | HF | 维护者 | 仅安全、数据损坏、无法启动、严重兼容、生产故障 |
 | LTS | 维护者单独宣布支持窗口 | 不接收大功能 |

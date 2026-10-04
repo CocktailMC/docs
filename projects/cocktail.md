@@ -71,4 +71,4 @@ Windows：`.\scripts\package-windows.ps1`。便携包数据在 exe 旁的 `data\
 | `design/webui/` | 管理端设计 |
 | `design/edge-scroll/` | Edge / Scroll 通道设计 |
 
-发行阶段、Build ID、Git tag 与 Release 资产命名见 [versioning.md](../versioning.md)。通道和阶段怎么对应，见 [发行流程](../process/release.md)。
+发行阶段、Build ID、Git tag 与 Release 资产命名见 [versioning.md](../versioning.md)。自动 DT 和人工发版的规则在仓库 `scripts/release/rules.toml`，说明见 [自动化](../process/automation.md)。
